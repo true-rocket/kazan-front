@@ -25,7 +25,7 @@
      },
      computed: {
 	 msgRev () {
-	     return this.message.split(' ').join('_');
+	     return this.message.split('').reverse().join('');
 	 }
      }
  }
