@@ -1,10 +1,17 @@
 <template>
   <div>
-    <div style="display: flex; align-items: base-line; margin: 64px; margin-left: 100px;">
+    <div style="display: flex; align-items: base-line; margin: 64px; margin-left: 100px; justify-content: space-between">
+      <div style="display: flex">
       <div class="pencil"></div>
       <nice-input class="FormHeader"
 		  style="margin-left: 20px"
 		  v-model="formHeader"></nice-input>
+      </div>
+      <div @click="saveForm"
+	  style="display: flex; align-items: center">
+	<div>Сохранить форму&nbsp;</div>
+	<div class="saveIcon"></div>
+      </div>
     </div>
     <!-- tile steps container -->
     <div class="FormStep_tiles_container">
@@ -67,18 +74,18 @@
 	  <div v-if="activeFieldEditor.editPlaceholder && activeFieldEditor.index == fieldIndex">
 	    <span>Плейсхолдер поля: </span>
 	    <nice-input v-model="field.placeholder"
-			style="padding-top: 15px;
+				 style="padding-top: 15px;
 				 background: transparent;
 				 font-size: 18px"
-			placeholder="Плейсхолдер"></nice-input>
+				 placeholder="Плейсхолдер"></nice-input>
 	  </div>
 	  <div v-if="activeFieldEditor.editTooltip && activeFieldEditor.index == fieldIndex">
 	    <span>Подсказка при наведении курсора: </span>
 	    <nice-input v-model="field.tooltip"
-				 style="padding-top: 15px;
+			style="padding-top: 15px;
 				 background: transparent;
 				 font-size: 18px"
-				 placeholder="Подсказка"></nice-input>
+			placeholder="Подсказка"></nice-input>
 	  </div>
 	  <nice-checkbox checked="field.necessary"
 			 style="padding: 15px;
@@ -120,7 +127,7 @@
 			       padding-bottom: 8px;
 			       border-bottom: 2px solid #9CAADC;
 			       color: #9BAAE4;"
-			placeholder="Поиск"></nice-input>
+			       placeholder="Поиск"></nice-input>
 	    <div class="StepField_listItem"
 		 style="padding: 10px; color: #595A63"
 		 @click="field.value = value; field.valueType = 'text'"
@@ -239,6 +246,8 @@
 	 this.steps.push(newEmptyStep());
      },
      methods: {
+	 saveForm() {
+	 },
 	 editorActivateInput(num, field) {
 	     let ed = this.activeFieldEditor;
 	     ed.activeInput = num;
@@ -523,6 +532,12 @@
  .FormStep_default {
      background-color: #ECEDF6;
      color: #ADB3D5;
+ }
+ 
+ .saveIcon {
+     background-image: url("../assets/entypo-save.svg");
+     width: 28px;
+     height: 28px;
  }
  
  .FormStep_add {
