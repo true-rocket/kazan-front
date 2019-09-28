@@ -264,8 +264,10 @@
 	     else if(num == 4) {
 		 valueType = 'multiple'
 	     }
-	     field.value = field.valueType == valueType ? field.value : undefined;
-	     field.valueType = valueType;
+	     if(field.valueType == valueType)
+		 return
+	     field.valueType = valueType
+	     field.value = undefined
 	 },
 	 newField() {
 	     var fieldItem;

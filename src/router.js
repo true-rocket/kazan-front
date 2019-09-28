@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import FormConstructor from './components/FormConstructor.vue'
+import FieldConstructor from './components/FieldConstructor.vue';
+
 
 Vue.use(Router)
 
@@ -12,12 +14,17 @@ export default new Router({
 	  name: 'constructor',
 	  component: FormConstructor
       },
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
+      {
+	  path: '/new-field',
+	  name: 'new-field',
+	  component: FieldConstructor
+      },
+      {
+	  path: '/',
+	  name: 'home',
+	  component: Home
+      },
+      {
       path: '/about',
       name: 'about',
       // route level code-splitting

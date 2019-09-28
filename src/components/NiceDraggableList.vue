@@ -5,7 +5,7 @@
 	<input style="margin-left: 30px"v-model="value.text" value="value.text"/>
       </div>
     </draggable>
-    <input v-on:blur="checkItem" v-model="newItem.text" value="newItem.text"/>
+    <input v-on:blur="checkItem" v-model="newItem.text"/>
   </div>
 </template>
 

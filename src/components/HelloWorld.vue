@@ -1,32 +1,13 @@
 <template>
-  <div class="hello">
-    <div>{{ message }}</div>
-    <div>{{ msgRev }}</div>
-    <input v-model="message"></input>
-    <div v-on:click="reverseMsg">Reverse</div>
-  </div>
+  <form-field-constructor></form-field-constructor>
 </template>
 
 <script>
+ import FieldConstructor from '../components/FieldConstructor.vue';
  export default {
      name: 'HelloWorld',
-     props: {
-	 msg: String
-     },
-     data () {
-	 return {
-	     message: 'hello blya'
-	 }
-     },
-     methods: {
-	 reverseMsg () {
-	     this.message = this.message.split('').reverse().join('');
-	 }
-     },
-     computed: {
-	 msgRev () {
-	     return this.message.split('').reverse().join('');
-	 }
+     components: {
+	 FieldConstructor
      }
  }
 </script>
