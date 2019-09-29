@@ -2,10 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import FormConstructor from './components/FormConstructor.vue'
+import Authentication from "./components/Authentication/Authentication";
+import Registration from "./components/Registration";
 
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
       {
 	  path: '/constructor',
@@ -16,6 +19,16 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/login',
+      name: 'Authentication',
+      component: Authentication,
+    },
+    {
+      path: '/registration',
+      name: 'registration',
+      component: Registration
     },
     {
       path: '/about',
