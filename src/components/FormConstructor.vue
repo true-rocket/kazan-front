@@ -183,10 +183,10 @@
 	    </div>
 	  </div>
 	  <div v-if="activeFieldEditor.activeInput == 3">
-	    <nice-draggable-list v-model="field.value"></nice-draggable-list>
+	    <nice-draggable-list v-model="field.value" :array="field.value"></nice-draggable-list>
 	  </div>
 	  <div v-if="activeFieldEditor.activeInput == 4">
-	    <nice-draggable-list v-model="field.value"></nice-draggable-list>
+	    <nice-draggable-list v-model="field.value" :array="field.value"></nice-draggable-list>
 	  </div>
 	</div>
       </div>
@@ -202,6 +202,7 @@
  import NiceInput from './NiceInput.vue';
  import NiceCheckbox from './NiceCheckbox.vue';
  import NiceDraggableList from './NiceDraggableList.vue';
+ /*  import ScenarioConstructor fomr './ScenarioConstructor.vue'; */
  
  let newEmptyStep = () => ({name: "Новый шаг",
 			    fields: []});
@@ -266,8 +267,8 @@
 	     }
 	     if(field.valueType == valueType)
 		 return
-	     field.valueType = valueType
-	     field.value = undefined
+	     field.valueType = valueType;
+	     field.value = undefined;
 	 },
 	 newField() {
 	     var fieldItem;

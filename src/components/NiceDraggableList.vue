@@ -2,10 +2,15 @@
   <div>
     <draggable v-model="values" @start="drag=true" @end="drag=false; emit()">
       <div v-for="(value, index) in values" :key="index">
-	<input style="margin-left: 30px"v-model="value.text" value="value.text"/>
+	<input style="margin-left: 30px"
+	       v-on:keyup.enter="emit"
+	       v-on:blur="emit"
+	       v-model="value.text"/>
       </div>
     </draggable>
-    <input v-on:blur="checkItem" v-model="newItem.text"/>
+    <input v-on:keyup.enter="checkItem"
+	   v-on:blur="checkItem"
+	   v-model="newItem.text"/>
   </div>
 </template>
 
@@ -32,6 +37,9 @@
      },
      methods: {
 	 emit() {
+	     this.values = this.values.map(val => val.text == "" ? undefined : val);
+	     while(this.values.indexOf(undefined) != -1)
+		 this.values.splice(this.values.indexOf(undefined), 1);
 	     this.$emit('input', this.values);
 	 },
 	 checkItem() {
