@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import bs '@/components/BackService'
+import bs from '@/components/BackService'
  export default {
    name: 'form-field-constructor',
    components: {bs},
