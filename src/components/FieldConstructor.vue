@@ -1,9 +1,9 @@
 <template>
   <div class="mainGrid">
     <div>Название поля</div>
-    <input v-model="name" placeholder="Название поля"/>
+    <input v-model="nameRu" placeholder="Название поля"/>
     <div>Название поля на английском</div>
-    <input v-model="nameEn" placeholder="Название поля"/>
+    <input v-model="name" placeholder="Название поля"/>
     <div>Тип данных</div>
     <select v-model="valueType">
       <option value="text">Текст</option>
@@ -23,22 +23,30 @@
 </template>
 
 <script>
+import bs '@/components/BackService'
  export default {
-     name: 'form-field-constructor',
-     // value types : text, number, date
-     data() {
-	 return {
-	     name: "",
-	     nameEn: "",
-	     description: "",
-	     valueType: ""
-	 }
-     },
-     methods: {
-	 saveField() {
-	     /// code
-	 }
-     }
+   name: 'form-field-constructor',
+   components: {bs},
+   // value types : text, number, date
+  data() {
+  	return {
+  	     name: "",
+  	     nameRu: "",
+  	     description: "",
+  	     valueType: ""
+  	}
+  },
+  methods: {
+    saveField() {
+      let newField = {
+        name: this.name,
+        nameRu: this.nameru,
+        description: this.description,
+        valueType: this.valueType
+      }
+      this.$bs.createAsync(newField)
+    }
+  }
  }
 </script>
 
