@@ -4,6 +4,8 @@ import Home from './views/Home.vue'
 import FormConstructor from './components/FormConstructor.vue'
 import FieldConstructor from './components/FieldConstructor.vue';
 import ScenarioConstructor from './components/ScenarioConstructor.vue';
+import Authentication from "./components/Authentication/Authentication";
+import Registration from "./components/Registration";
 
 Vue.use(Router)
 
@@ -29,6 +31,17 @@ export default new Router({
 	    path: '/',
 	    name: 'home',
 	    component: Home
+	},
+
+	{
+	    path: '/login',
+	    name: 'Authentication',
+	    component: Authentication,
+	},
+	{
+	    path: '/registration',
+	    name: 'registration',
+	    component: Registration
 	}
     ]
 })
